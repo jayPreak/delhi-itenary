@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #fff8f2;
+  --bg-soft: #fef1e6;
+  --surface: #ffffff;
+  --surface-2: #fffaf5;
+  --ink: #3a2e2c;
+  --ink-2: #6f5f5b;
+  --ink-3: #a8968f;
+  --line: rgba(58, 46, 44, 0.09);
+  --rose: #ea92a8;
+  --rose-deep: #d96e88;
+  --peach: #f7b98c;
+  --peach-deep: #ef9c62;
+  --lavender: #b6a4dd;
+  --lavender-deep: #9a83c9;
+  --sage: #9ec49a;
+  --sage-deep: #7fab7a;
+  --gold: #dfaf5a;
+  --sky: #93c9cf;
+  --shadow-soft: 0 8px 24px rgba(58, 46, 44, 0.08);
+  --shadow-lift: 0 16px 40px rgba(58, 46, 44, 0.14);
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #221a26;
+  --bg-soft: #2a2130;
+  --surface: #2b2230;
+  --surface-2: #322838;
+  --ink: #f6eef2;
+  --ink-2: #cdbdc7;
+  --ink-3: #93818e;
+  --line: rgba(255, 255, 255, 0.09);
+  --rose: #ef9db0;
+  --rose-deep: #f4b3c1;
+  --peach: #f3bd8c;
+  --peach-deep: #f7cda3;
+  --lavender: #bda9e8;
+  --lavender-deep: #cdbdf0;
+  --sage: #9fc79a;
+  --sage-deep: #b6d9b1;
+  --gold: #e8c27d;
+  --sky: #8fd0d6;
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.28);
+  --shadow-lift: 0 20px 48px rgba(0, 0, 0, 0.4);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-soft: var(--bg-soft);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-rose: var(--rose);
+  --color-rose-deep: var(--rose-deep);
+  --color-peach: var(--peach);
+  --color-peach-deep: var(--peach-deep);
+  --color-lavender: var(--lavender);
+  --color-lavender-deep: var(--lavender-deep);
+  --color-sage: var(--sage);
+  --color-sage-deep: var(--sage-deep);
+  --color-gold: var(--gold);
+  --color-sky: var(--sky);
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-jakarta);
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+::selection {
+  background: var(--rose);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 999px;
+}
+
+.font-display {
+  font-family: var(--font-fraunces), Georgia, serif;
+}
+
+/* Soft grain / paper texture overlay for the scrapbook feel */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  background-image: radial-gradient(circle at 1px 1px, rgba(120, 100, 90, 0.35) 1px, transparent 0);
+  background-size: 3px 3px;
+}
+.dark .grain-overlay {
+  opacity: 0.35;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.25) 1px, transparent 0);
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120vh) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+.floaty {
+  animation: float-up linear infinite;
+}
+
+@keyframes soft-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+.soft-pulse {
+  animation: soft-pulse 2.4s ease-in-out infinite;
+}
+
+.tape {
+  position: relative;
+}
+.tape::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 64px;
+  height: 22px;
+  background: rgba(234, 146, 168, 0.35);
+  border: 1px solid rgba(234, 146, 168, 0.25);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+.dark .tape::before {
+  background: rgba(239, 157, 176, 0.22);
+  border-color: rgba(239, 157, 176, 0.18);
+}
