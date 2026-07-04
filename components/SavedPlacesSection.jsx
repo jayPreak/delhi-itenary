@@ -27,10 +27,9 @@ export default function SavedPlacesSection() {
     <section id="saved" className="mx-auto max-w-3xl scroll-mt-16 px-4 py-10 sm:px-6">
       <div className="mb-7 text-center">
         <span className="text-xs font-semibold tracking-wide text-rose-deep uppercase">Every pin, accounted for</span>
-        <h2 className="font-display mt-1 text-3xl font-semibold text-ink sm:text-4xl">Jayesh&rsquo;s Saved Places</h2>
+        <h2 className="font-display mt-1 text-3xl font-semibold text-ink sm:text-4xl">All Our Spots</h2>
         <p className="mx-auto mt-2 max-w-lg text-sm text-ink-2">
-          All {PLACES.length} spots from the saved Google Maps list, grouped by type. Some made it into the
-          itinerary above; the rest are here as reminders for another time.
+          Every place I&rsquo;ve bookmarked, grouped by type. Some made it into the itinerary above; the rest are here as reminders for another time.
         </p>
       </div>
 
